@@ -1,0 +1,16 @@
+# docker-compose file format version
+version: '3.8'
+
+services:
+  java-app1:
+    build:
+      context: .
+      dockerfile: Dockerfile1
+    image: myjava1:v1
+
+  java-app2:
+    build:
+      context: .
+      dockerfile: Dockerfile2
+    image: myjava2:v2
+
