@@ -38,6 +38,9 @@ RUN ./gradlew bootJar
 FROM openjdk:17-jdk-alpine
 WORKDIR /app
 COPY --from=stage1 /app/build/libs/*.jar app.jar
+# docker run -d -p 8080:8080 -v C:/Users/Playdata/Desktop/tmp:/tmp ordering:v1
+# volume을 잡아준다: 전체 host의 특정 경로와 매핑을 시킴
+VOLUME /tmp
 # CMD 또는 ENTRYPOINT를 통해 컨테이너 실행
 ENTRYPOINT [ "java", "-jar", "app.jar" ]
 

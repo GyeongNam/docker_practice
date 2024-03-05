@@ -58,7 +58,7 @@ public class ItemService {
                 .build();
         item = itemRepository.save(item);
 
-        Path path = Paths.get("C:\\Users\\Playdata\\Documents\\GitHub\\BootCamp\\OrderService\\src\\main\\java\\com\\encore\\OrderService\\image",  item.getId() + "_" + fileName );
+        Path path = Paths.get("/tmp/",  item.getId() + "_" + fileName );
         item.imagePathUpdate(path.toString());
         try {
             byte[] bytes = multipartFile.getBytes();
@@ -108,7 +108,7 @@ public class ItemService {
         Item item = this.findById(id);
         MultipartFile multipartFile = itemReqDTO.getItemImage();
         String fileName = multipartFile.getOriginalFilename();
-        Path path = Paths.get("C:\\Users\\Playdata\\Documents\\GitHub\\BootCamp\\OrderService\\src\\main\\java\\com\\encore\\OrderService\\image",  item.getId() + "_" + fileName );
+        Path path = Paths.get("/tmp/",  item.getId() + "_" + fileName );
         item.updateItem(
                 itemReqDTO.getName(),
                 itemReqDTO.getCategory(),
